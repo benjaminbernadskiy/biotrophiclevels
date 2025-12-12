@@ -25,15 +25,15 @@ def add_animal():
     prey = []
     print("Enter prey/what this animal eats (press Enter with no input when done):")
     while True:
-        prey_item = input("  Prey: ").strip().lower()
+        prey_item = input("prey:").strip().lower()
         if not prey_item:
             break
         prey.append(prey_item)
     
     predators = []
-    print("Enter predators/what eats this animal (press Enter with no input when done):")
+    print("Enter predators (press enter with no input when done):")
     while True:
-        predator = input("  Predator: ").strip().lower()
+        predator = input("predator: ").strip().lower()
         if not predator:
             break
         predators.append(predator)
@@ -48,7 +48,7 @@ def add_animal():
 
 def display_all():
     if not animals:
-        print("No animals in database.\n")
+        print("no animals")
         return
     
     for name in sorted(animals.keys()):
@@ -63,7 +63,7 @@ def main():
     while True:
         print("1. Add animal")
         print("2. View all animals")
-        print("3. Exit")
+        print("3. Stop")
         
         choice = input("Choose an option: ")
         
@@ -72,10 +72,9 @@ def main():
         elif choice == "2":
             display_all()
         elif choice == "3":
-            print("Goodbye!")
             break
         else:
-            print("Invalid option.\n")
+            print("Not an option bruh.\n")
 
 if __name__ == "__main__":
     main()
