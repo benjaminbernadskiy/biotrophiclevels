@@ -71,43 +71,39 @@ def display_all_with_levels(animals):
         if level != current_level:
             current_level = level
             level_name = level_names[level] if level < len(level_names) else f"Level {level} Consumer"
-            print(f"\n[Trophic Level {level}: {level_name}]")
+            print(f"\n[trophic Level: {level_name}]")
         
         animal = animals[name]
         prey_str = ', '.join(animal.get('prey', [])) if animal.get('prey') else 'None'
         predators_str = ', '.join(animal['predators']) if animal['predators'] else 'None'
         print(f"  • {name.title()} ({animal['diet']})")
-        print(f"    Eats: {prey_str}")
-        print(f"    Eaten by: {predators_str}")
+        print(f"prey: {prey_str}")
+        print(f"predators: {predators_str}")
     
     print()
 
 def main():
-    """Main program loop"""
     animals = load_animals()
     if animals is None:
         return
-    
-    print(f"Loaded {len(animals)} animals from database.\n")
     
     while True:
         print("=== Trophic Level Calculator ===")
         print("1. View specific animal")
         print("2. View all animals with trophic levels")
-        print("3. Exit")
+        print("3. Stop")
         
         choice = input("Choose an option: ")
         
         if choice == "1":
-            name = input("Enter animal name: ").lower()
+            name = input("animal name: ").lower()
             display_animal(name, animals)
         elif choice == "2":
             display_all_with_levels(animals)
         elif choice == "3":
-            print("Goodbye!")
             break
         else:
-            print("Invalid option.\n")
+            print("u aint real bruh ._. PICK SOMETHING REAL")
 
 if __name__ == "__main__":
     main()
